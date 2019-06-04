@@ -350,12 +350,15 @@ quit;
 
 ods rtf close;
 
-
+* to construct figure for inclusion in the book ;
 * ========================= EPSI ============================;
 ods graphics on /  imagename="Ch01Fig5"
                    reset=index imagefmt=EPSI border=OFF;
 ods listing image_dpi=300;
-
+proc reg data=lin_reg_data plots(only)=FitPlot(nolimits);
+   model y=x;
+run;
+quit;
 ods listing close;
 
 ods graphics off;
